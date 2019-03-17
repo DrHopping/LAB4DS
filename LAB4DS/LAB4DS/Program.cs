@@ -23,6 +23,8 @@ namespace LAB4DS
             tree.Add(2);
             tree.Add(1);
 
+            // Console.WriteLine(tree.top.left.left.data);
+
             Console.WriteLine("Tree top " + tree.top.data);
             tree.Infix(tree.top);
             Console.WriteLine();
@@ -31,9 +33,9 @@ namespace LAB4DS
             tree.Postfix(tree.top);
             Console.WriteLine();
 
-            tree.Delete(5);
-            Console.WriteLine("Tree top " + tree.top.data);
-            tree.Infix(tree.top);
+            //tree.Delete(5);
+            //Console.WriteLine("Tree top " + tree.top.data);
+            //tree.Infix(tree.top);
             Console.ReadLine();
         }
     }
