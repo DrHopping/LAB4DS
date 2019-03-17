@@ -34,29 +34,29 @@
             element.height = (hLeft > hRight ? hLeft : hRight) + 1;
         }
 
-        public Node leftRotare(Node l)
+        public Node leftRotare(Node q)
         {
-            Node r = l.right;
+            Node p = q.right;
 
-            l.right = r.left;
-            r.left = l;
+            q.right = p.left;
+            p.left = q;
 
-            CalcHeight(l);
-            CalcHeight(r);
+            CalcHeight(q);
+            CalcHeight(p);
 
-            return r;
+            return p;
         }
 
-        public Node rightRotate(Node r)
+        public Node rightRotate(Node p)
         {
-            Node l = r.left;
-            r.left = l.right;
-            l.right = r;
+            Node q = p.left;
+            p.left = q.right;
+            q.right = p;
 
-            CalcHeight(l);
-            CalcHeight(r);
+            CalcHeight(p);
+            CalcHeight(q);
 
-            return l;
+            return q;
         }
 
         public Node Balancing(Node element)
@@ -66,15 +66,14 @@
             {
                 if (BalanceFactor(element.right) < 0)
                     element.right = rightRotate(element.right);
-                element = leftRotare(element);
-                return element;
+                return leftRotare(element);
             }
             else if(BalanceFactor(element) == -2)
             {
                 if (BalanceFactor(element.left) > 0)
                     element.left = leftRotare(element.left);
-                element = rightRotate(element);
-                return element;
+                return rightRotate(element);
+                 
             }
             return element;
         }
