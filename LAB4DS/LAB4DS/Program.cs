@@ -8,20 +8,45 @@ namespace LAB4DS
 {
     class Program
     {
-        static void Main(string[] args)
+        static AVLTree EnterTree()
         {
             AVLTree tree = new AVLTree();
-            
-            tree.Add(10);
-            tree.Add(9);
-            tree.Add(8);
-            tree.Add(7);
-            tree.Add(6);
-            tree.Add(5);
-            tree.Add(4);
-            tree.Add(3);
-            tree.Add(2);
-            tree.Add(1);
+
+            while (true)
+            {
+                Console.WriteLine("===================================================>GeneneratingTree<===================================================");
+                Console.WriteLine("1.Add 2.Remove 3.Stop");
+                Console.Write("Infix:"); tree.Infix(tree.top); Console.WriteLine();
+                Console.Write("Prefix:"); tree.Prefix(tree.top); Console.WriteLine();
+                Console.Write("Postfix:"); tree.Postfix(tree.top); Console.WriteLine();
+                Console.Write("Choose operation: ");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Console.Write("Add: ");
+                        tree.Add(int.Parse(Console.ReadLine()));
+                        break;
+
+                    case "2":
+                        Console.Write("Remove: ");
+                        tree.Delete(int.Parse(Console.ReadLine()));
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        return tree;
+                        break;
+
+                    default:
+                        break;
+                }
+                Console.Clear();
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            AVLTree tree = EnterTree();
 
             // Console.WriteLine(tree.top.left.left.data);
 
