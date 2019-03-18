@@ -179,7 +179,7 @@
             if (level == 1) return 1;
             else if (level > 1)
                 return GetWidth(top.left, level - 1) + GetWidth(top.right, level - 1);
-            return GetWidth(top.right, level - 1);
+            return 0;
         }
     }
 }
