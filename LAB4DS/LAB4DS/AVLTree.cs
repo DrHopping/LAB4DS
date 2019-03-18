@@ -63,23 +63,23 @@
         public Node Balancing(Node element)
         {
             CalcHeight(element);
-            if(BalanceFactor(element) == 2)
+            if (BalanceFactor(element) == 2)
             {
                 if (BalanceFactor(element.right) < 0)
                     element.right = rightRotate(element.right);
                 return leftRotare(element);
             }
-            else if(BalanceFactor(element) == -2)
+            else if (BalanceFactor(element) == -2)
             {
                 if (BalanceFactor(element.left) > 0)
                     element.left = leftRotare(element.left);
                 return rightRotate(element);
-                 
+
             }
             return element;
         }
 
-        public Node Insert (Node element, int data)
+        public Node Insert(Node element, int data)
         {
             if (element == null)
                 return new Node(data);
@@ -141,7 +141,7 @@
         {
             if (top == null) return;
             Infix(top.left);
-            System.Console.Write(top.data +" ");
+            System.Console.Write(top.data + " ");
             Infix(top.right);
         }
 
@@ -166,11 +166,20 @@
             Node p = top;
             while (p != null)
             {
-                if (data < p.data)  p = p.left; 
-                if (data > p.data)  p = p.right;
-                if (p.data == data) return true; 
+                if (data < p.data) p = p.left;
+                if (data > p.data) p = p.right;
+                if (p.data == data) return true;
             }
             return false;
+        }
+
+        public int GetWidth(Node top, int level)
+        {
+            if (top == null) return 0;
+            if (level == 1) return 1;
+            else if (level > 1)
+                return GetWidth(top.left, level - 1) + GetWidth(top.right, level - 1);
+            return GetWidth(top.right, level - 1);
         }
     }
 }

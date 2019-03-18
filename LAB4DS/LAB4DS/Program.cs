@@ -35,7 +35,6 @@ namespace LAB4DS
                     case "3":
                         Console.Clear();
                         return tree;
-                        break;
 
                     default:
                         break;
@@ -48,19 +47,12 @@ namespace LAB4DS
         {
             AVLTree tree = EnterTree();
 
-            // Console.WriteLine(tree.top.left.left.data);
-
             Console.WriteLine("Tree top " + tree.top.data);
-            tree.Infix(tree.top);
-            Console.WriteLine();
-            tree.Prefix(tree.top);
-            Console.WriteLine();
-            tree.Postfix(tree.top);
-            Console.WriteLine();
-
-            //tree.Delete(5);
-            //Console.WriteLine("Tree top " + tree.top.data);
-            //tree.Infix(tree.top);
+            Console.Write("Infix:"); tree.Infix(tree.top); Console.WriteLine();
+            Console.Write("Prefix:"); tree.Prefix(tree.top); Console.WriteLine();
+            Console.Write("Postfix:"); tree.Postfix(tree.top); Console.WriteLine();
+            Console.Write("Enter Level: ");
+            Console.WriteLine("Width: "+tree.GetWidth(tree.top,int.Parse(Console.ReadLine())));
             Console.ReadLine();
         }
     }
